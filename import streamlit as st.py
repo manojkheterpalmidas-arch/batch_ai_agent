@@ -20,9 +20,6 @@ st.markdown("""
 
 html, body, [class*="css"] { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: #ffffff !important; color: #1a1a1a !important; }
 .stApp { background: #ffffff !important; }
-.stApp, .stApp * { color: #1a1a1a !important; }
-.stApp .stButton button, .stApp .stButton button *,
-.stApp div[data-testid="stButton"] button, .stApp div[data-testid="stButton"] button * { color: white !important; }
 .stMarkdown, .stMarkdown * { color: #1a1a1a !important; }
 [data-testid="stMetricValue"] { color: #1a1a1a !important; }
 [data-testid="stMetricLabel"] { color: #6b7280 !important; }
@@ -31,6 +28,7 @@ a:hover { color: #1d4ed8 !important; }
 #MainMenu, footer { visibility: hidden; }
 .block-container { padding: 2rem 2.5rem 4rem !important; max-width: 1400px !important; }
 
+/* Buttons — white text */
 .stButton > button {
     background: #1a1a1a !important; color: white !important; border: none !important;
     border-radius: 8px !important; font-family: 'Inter', sans-serif !important;
@@ -38,23 +36,49 @@ a:hover { color: #1d4ed8 !important; }
     transition: all 0.15s ease !important;
 }
 .stButton > button:hover { background: #374151 !important; }
+.stButton > button > div,
+.stButton > button > div > p,
+.stButton > button span,
+.stButton > button * { color: white !important; }
 
+/* Download buttons */
 .stDownloadButton > button {
     background: transparent !important; color: #1a1a1a !important;
     border: 1px solid #e5e7eb !important; border-radius: 8px !important;
     font-family: 'Inter', sans-serif !important; font-weight: 600 !important; font-size: 12px !important;
 }
 .stDownloadButton > button:hover { background: #f9fafb !important; }
+.stDownloadButton > button > div,
+.stDownloadButton > button > div > p,
+.stDownloadButton > button span,
+.stDownloadButton > button * { color: #1a1a1a !important; }
 
+/* Inputs */
 .stTextInput > div > div > input, .stTextArea > div > div > textarea {
     background: #ffffff !important; color: #1a1a1a !important;
     border: 1px solid #e5e7eb !important; border-radius: 8px !important;
     font-family: 'Inter', sans-serif !important; font-size: 14px !important; padding: 11px 14px !important;
+    caret-color: #1a1a1a !important;
 }
 .stTextInput > div > div > input:focus, .stTextArea > div > div > textarea:focus {
     border-color: #2563eb !important; box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
 }
+.stTextInput > div > div > input::placeholder, .stTextArea > div > div > textarea::placeholder {
+    color: #9ca3af !important;
+}
 
+/* Expander — light background so text is visible */
+.streamlit-expanderHeader {
+    background: #f9fafb !important; border: 1px solid #f3f4f6 !important; border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important; font-size: 14px !important; font-weight: 600 !important;
+    color: #1a1a1a !important;
+}
+.streamlit-expanderHeader p, .streamlit-expanderHeader span,
+.streamlit-expanderHeader * { color: #1a1a1a !important; }
+[data-testid="stExpander"] details summary { color: #1a1a1a !important; }
+[data-testid="stExpander"] details summary * { color: #1a1a1a !important; }
+
+/* Metrics */
 [data-testid="metric-container"] {
     background: #ffffff !important; border: 1px solid #f3f4f6 !important;
     border-radius: 10px !important; padding: 16px 20px !important;
@@ -62,6 +86,7 @@ a:hover { color: #1d4ed8 !important; }
 [data-testid="stMetricValue"] { font-family: 'Inter', sans-serif !important; font-size: 28px !important; font-weight: 700 !important; }
 [data-testid="stMetricLabel"] { font-family: 'Inter', sans-serif !important; font-size: 11px !important; letter-spacing: 0.05em !important; text-transform: uppercase !important; }
 
+/* Tabs */
 .stTabs [data-baseweb="tab-list"] { background: transparent !important; border-bottom: 1px solid #f3f4f6 !important; }
 .stTabs [data-baseweb="tab"] {
     font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important;
@@ -70,9 +95,11 @@ a:hover { color: #1d4ed8 !important; }
 }
 .stTabs [aria-selected="true"] { color: #1a1a1a !important; border-bottom-color: #1a1a1a !important; }
 
+/* Progress */
 .stProgress > div > div > div { background: #1a1a1a !important; border-radius: 2px !important; }
 .stProgress > div > div { background: #f3f4f6 !important; border-radius: 2px !important; }
 
+/* Score badges */
 .score-hot  { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
 .score-warm { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
 .score-cold { background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb; }
@@ -81,6 +108,7 @@ a:hover { color: #1d4ed8 !important; }
     font-size: 12px; padding: 4px 12px; border-radius: 20px;
 }
 
+/* Lead cards */
 .lead-card {
     background: #ffffff; border: 1px solid #f3f4f6; border-radius: 10px;
     padding: 20px 24px; margin-bottom: 12px; transition: all 0.15s ease;
@@ -90,6 +118,7 @@ a:hover { color: #1d4ed8 !important; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 2px; }
 
+/* Form submit buttons */
 .stApp [data-testid="stFormSubmitButton"] button,
 .stApp [data-testid="stFormSubmitButton"] button * { color: white !important; font-family: 'Inter', sans-serif !important; font-weight: 600 !important; }
 [data-testid="stFormSubmitButton"] button {
@@ -98,6 +127,9 @@ a:hover { color: #1d4ed8 !important; }
     font-weight: 600 !important; font-size: 13px !important; padding: 10px 24px !important;
 }
 [data-testid="stFormSubmitButton"] button:hover { background: #374151 !important; }
+
+/* Radio buttons */
+.stRadio label { color: #1a1a1a !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -156,7 +188,7 @@ def serp_to_text(results):
 
 
 # ── FIRECRAWL ─────────────────────────────────────────────────────────────────
-def firecrawl_crawl(url, api_key, max_pages=15):
+def firecrawl_crawl(url, api_key, max_pages=30):
     """Crawl a website with Firecrawl. Returns list of {url, markdown}."""
     try:
         # Try scrape with cookie accept action first
@@ -445,37 +477,60 @@ Website content:
 
 
 MIDAS_PRODUCTS = """
-MIDAS NX PRODUCT SUITE:
-1. CIVIL NX — Bridges & civil infrastructure (construction stage, moving loads, seismic)
-2. GEN NX — Buildings & general structures (RC, steel, composite, seismic design)
-3. FEA NX — Detailed local & nonlinear analysis (connections, cracking, fatigue)
-4. GTS NX — Geotechnical analysis (tunnels, excavation, foundations, slopes)
+MIDAS NX PRODUCT SUITE — FULL SALES KNOWLEDGE BASE
 
-CROSS-SELL: Bridge firm → CIVIL NX + FEA NX | Building firm → GEN NX + FEA NX | Geotech firm → GTS NX + CIVIL NX | Mixed → Full suite
-COMPETITIVE: vs LUSAS/STAAD/SAP2000 → better automation | vs PLAXIS → better BIM | vs ETABS → more automation | vs ANSYS → more civil-focused
+1. MIDAS CIVIL NX — Bridges & Civil Infrastructure
+Structural analysis and design for bridges and civil infrastructure. Construction stage simulation, moving load and traffic simulation, design code checking, automation via Excel/API. Covers cable-stayed, suspension, PSC, steel bridges, highway/railway bridges, earthquake response, water treatment, underground structures.
+
+2. MIDAS GEN NX — Buildings & General Structures
+Structural analysis and design for buildings. Models RC, steel, composite structures. Static, dynamic, seismic, nonlinear analysis. Automated design optimisation, pushover analysis, Excel/Grasshopper integration. High-rise, residential, commercial, industrial, earthquake-resistant design.
+
+3. MIDAS FEA NX — Detailed Local & Nonlinear Analysis
+High-end FEA for detailed local and nonlinear analysis. 2D/3D elements, material nonlinearity, cracking, fatigue, buckling, thermal. CAD import, auto-meshing, parallel computing. Steel connections, anchor zones, bridge joints, deep beams, shear walls, geotechnical details, failure analysis.
+
+4. MIDAS GTS NX — Geotechnical Analysis
+Geotechnical FEA for soil, rock, underground problems. Soil-structure interaction, excavation staging, groundwater/seepage, dynamic/seismic. Foundations, metro tunnels, deep excavation, slope stability, dam engineering.
+
+CROSS-SELL LOGIC:
+- Bridge/infrastructure firm → CIVIL NX + FEA NX
+- Building/structural firm → GEN NX + FEA NX
+- Geotechnical/ground firm → GTS NX + CIVIL NX
+- Mixed civil firm → CIVIL NX + GEN NX + FEA NX
+- Full service → Full suite
+- Metro/tunnelling → GTS NX + CIVIL NX
+
+COMPETITIVE:
+- vs LUSAS/STAAD/SAP2000 → better automation, modern UI, construction stage analysis
+- vs PLAXIS → better BIM integration and CAD workflow
+- vs ETABS → more automation and parametric design
+- vs ANSYS/ABAQUS → more accessible for civil engineers
+- No FEA detected → clean opportunity, position as first professional FEA platform
 """
 
 
 def analyze_sales(corpus, company_json):
     return ask_deepseek(
-        f"You are a senior B2B sales strategist for MIDAS IT. Be specific and actionable. Respond in pure JSON, no markdown. Always respond in English.\n\n{MIDAS_PRODUCTS}",
+        f"You are a senior B2B sales strategist for MIDAS IT. Use the product knowledge below to make specific product recommendations. Be specific and actionable. Respond in pure JSON, no markdown. Always respond in English regardless of the language of the website content.\n\n{MIDAS_PRODUCTS}",
         f"""Return ONLY valid JSON:
 {{
-  "fem_opportunities": ["specific use case 1", "use case 2", "use case 3"],
-  "pain_points": ["specific pain point 1", "pain 2"],
-  "entry_point": "Specific person/role to approach with reasoning",
-  "value_positioning": "2-3 sentence positioning for this company",
-  "likely_objections": ["objection 1", "objection 2"],
-  "hiring_signals": ["signal 1"],
-  "expansion_signals": ["signal 1"],
+  "fem_opportunities": ["detailed specific use case 1 referencing their actual project types", "use case 2", "use case 3"],
+  "pain_points": ["specific pain point based on their work", "pain 2", "pain 3"],
+  "entry_point": "Specific person name and role to approach first, with detailed reasoning based on their seniority and relevance to FEA/FEM",
+  "value_positioning": "Detailed 2-3 sentence positioning of MIDAS specifically for this company's project types and engineering focus",
+  "likely_objections": ["specific objection based on their context", "objection 2", "objection 3"],
+  "hiring_signals": ["specific signal from their job postings or growth", "signal 2"],
+  "expansion_signals": ["specific expansion signal", "signal 2"],
+  "pre_meeting_mention": ["specific thing to mention about their actual projects", "thing 2", "thing 3"],
+  "smart_questions": ["specific question about their workflow or current tools", "question 2", "question 3"],
+  "opening_line": "One strong personalised opening line referencing something specific about their work",
   "overall_score": "Hot|Warm|Cold",
-  "score_reason": "2-3 sentence reason for the score",
-  "recommended_products": ["CIVIL NX", "GEN NX", "FEA NX", "GTS NX"],
-  "product_reason": "Why these products fit"
+  "score_reason": "2-3 sentence detailed reason for the score based on their specific context",
+  "recommended_products": ["list the specific MIDAS products that fit this company from: CIVIL NX, GEN NX, FEA NX, GTS NX"],
+  "product_reason": "3-4 sentence explanation of exactly why these specific MIDAS products fit this company based on their project types and engineering capabilities"
 }}
 Company data: {company_json}
 Website excerpt: {corpus[:4000]}""",
-        max_tokens=3000
+        max_tokens=4000
     )
 
 
@@ -511,7 +566,7 @@ def process_single_company(url, firecrawl_key, serp_key, ch_key, status_callback
     try:
         # Step 1 — Crawl website
         if status_callback: status_callback(f"🔍 Crawling {extract_domain(url)}...")
-        pages = firecrawl_crawl(url, firecrawl_key, max_pages=15)
+        pages = firecrawl_crawl(url, firecrawl_key, max_pages=30)
 
         # Fallback if thin crawl
         real_pages = [p for p in (pages or []) if len(p.get("markdown", "")) > 500]
