@@ -130,6 +130,28 @@ a:hover { color: #1d4ed8 !important; }
 
 /* Radio buttons */
 .stRadio label { color: #1a1a1a !important; }
+.stRadio label span { color: #1a1a1a !important; }
+.stRadio label p { color: #1a1a1a !important; }
+.stRadio div[role="radiogroup"] label { color: #1a1a1a !important; }
+.stRadio div[role="radiogroup"] label * { color: #1a1a1a !important; }
+
+/* Input labels */
+.stTextInput label, .stTextInput label * { color: #1a1a1a !important; }
+.stTextArea label, .stTextArea label * { color: #1a1a1a !important; }
+.stSelectbox label, .stSelectbox label * { color: #1a1a1a !important; }
+.stFileUploader label, .stFileUploader label * { color: #1a1a1a !important; }
+
+/* Expander */
+[data-testid="stExpander"] { border: 1px solid #f3f4f6 !important; border-radius: 8px !important; }
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] summary *,
+[data-testid="stExpander"] details > summary > span,
+[data-testid="stExpander"] details > summary > span * { color: #1a1a1a !important; background: transparent !important; }
+[data-testid="stExpander"] [data-testid="stExpanderDetails"] { background: #ffffff !important; }
+
+/* Force all label/paragraph text visible */
+p, span, label, div { color: inherit; }
+.stApp p, .stApp label, .stApp span { color: #1a1a1a; }
 </style>
 """, unsafe_allow_html=True)
 
